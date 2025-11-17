@@ -61,7 +61,8 @@ if bright_contrast:
     contrast = st.sidebar.slider("Contrast", 0.0, 2.0, 1.0)
     pil_tmp = Image.fromarray(cv2.cvtColor(edited, cv2.COLOR_BGR2RGB))
     enhancer_b = ImageEnhance.Brightness(pil_tmp)
-    enhancer_c = ImageEnhance.Contrast(enhancer_b.enhance(brightness))
+    bright_img = enhancer_b.enhance(brightness)
+    enhancer_c = ImageEnhance.Contrast(bright_img)
     edited = cv2.cvtColor(np.array(enhancer_c.enhance(contrast)), cv2.COLOR_RGB2BGR)
 
 
@@ -132,6 +133,7 @@ st.download_button(
     file_name="edited_image.png",
     mime="image/png"
 )
+
 
 
 
