@@ -36,10 +36,11 @@ if resize:
     edited = cv2.resize(edited, (width, height))
 
 if crop:
-    top = st.sidebar.number_input("Top", 0, edited.shape[0]//2, 0)
-    bottom = st.sidebar.number_input("Bottom", 0, edited.shape[0]//2, 0)
-    left = st.sidebar.number_input("Left", 0, edited.shape[1]//2, 0)
-    right = st.sidebar.number_input("Right", 0, edited.shape[1]//2, 0)
+    top = st.sidebar.number_input("Top", 0, edited.shape[0], 0)
+    bottom = st.sidebar.number_input("Bottom", 0, edited.shape[0], 0)
+    left = st.sidebar.number_input("Left", 0, edited.shape[1], 0)
+    right = st.sidebar.number_input("Right", 0, edited.shape[1], 0)
+
     edited = edited[int(top):edited.shape[0]-int(bottom), int(left):edited.shape[1]-int(right)]
 
 if rotate:
@@ -131,5 +132,6 @@ st.download_button(
     file_name="edited_image.png",
     mime="image/png"
 )
+
 
 
