@@ -15,7 +15,7 @@ if uploaded_file is None:
 
 # Read and convert to OpenCV format
 pil_img = Image.open(uploaded_file).convert("RGB")
-img = np.array(pil_img)[:, :, ::-1]  # BGR for OpenCV
+img = cv2.cvtColor(np.array(pil_img),cv2.COLOR_RGB2BGR) # BGR for OpenCV
 st.sidebar.header("Choose Editing Options")
 
 
@@ -131,3 +131,4 @@ st.download_button(
     file_name="edited_image.png",
     mime="image/png"
 )
+
