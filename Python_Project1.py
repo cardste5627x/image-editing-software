@@ -4,7 +4,7 @@ import streamlit as st
 from PIL import Image, ImageEnhance
 
 st.set_page_config(page_title="Interactive Image Editor", layout="wide")
-st.title(" Interactive Image Editing App")
+st.title(" Basic Image Editing App")
 
 
 # Upload
@@ -133,6 +133,7 @@ st.download_button(
     file_name="edited_image.png",
     mime="image/png"
 )
+
 
 
 
